@@ -1,13 +1,13 @@
-mod dick;
+mod hemoroid;
 mod help;
 mod start;
 mod privacy;
-mod dod;
+mod hod; // replaced dod
 mod import;
 mod promo;
 mod inline;
 pub mod utils;
-pub mod pvp;
+pub mod buttfight;
 pub mod perks;
 pub mod loan;
 pub mod stats;
@@ -21,11 +21,11 @@ use teloxide::sugar::request::RequestLinkPreviewExt;
 use teloxide::types::{CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, Message, ReplyParameters};
 use teloxide::types::ParseMode::Html;
 
-pub use dick::*;
+pub use hemoroid::*;
 pub use help::*;
 pub use start::*;
 pub use privacy::*;
-pub use dod::*;
+pub use hod::*;
 pub use import::*;
 pub use inline::*;
 pub use promo::*;

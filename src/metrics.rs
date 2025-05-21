@@ -50,10 +50,10 @@ pub static CMD_LOAN_COUNTER: Lazy<BothModesComplexCommandCounters> = Lazy::new(|
     }
 });
 pub static CMD_DOD_COUNTER: Lazy<BothModesCounters> = Lazy::new(|| {
-    let opts = Opts::new("command_dick_of_day_usage_total", "count of /dick_of_day invocations");
+    let opts = Opts::new("command_hemoroid_of_day_usage_total", "count of /hemoroid_of_day invocations");
     BothModesCounters {
-        chat: Counter::new("command_dick_of_day (chat)", opts.clone().const_label("mode", "chat")),
-        inline: Counter::new("command_dick_of_day (inline)", opts.const_label("mode", "inline")),
+        chat: Counter::new("command_hemoroid_of_day (chat)", opts.clone().const_label("mode", "chat")),
+        inline: Counter::new("command_hemoroid_of_day (inline)", opts.const_label("mode", "inline")),
     }
 });
 pub static CMD_PVP_COUNTER: Lazy<BothModesCounters> = Lazy::new(|| {

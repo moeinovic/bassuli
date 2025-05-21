@@ -3,76 +3,106 @@ commands:
     description: "I'll help you, my friend"
   privacy:
     description: "Privacy Policy detailing what data we store"
-  grow:
-    description: "Grow your dick!"
-    result: "Your dick has %{event} by <b>%{incr} cm</b> and now it is <b>%{length} cm</b> long."
+  shrink:
+    description: "Try to shrink your hemorrhoid today!"
+    result: "Your hemorrhoid has %{event} by <b>%{change} cm</b> and now has <b>%{level} cm</b> protrusion."
     direction:
-      grown: "grown"
       shrunk: "shrunk"
-    position: "Your position in the top is <b>%{pos}</b>."
-    tomorrow: "You have already played with your dick today."
+      swelled: "swelled"
+    position: "Your position in the rankings is <b>%{pos}</b>."
+    tomorrow: "You have already applied treatment to your hemorrhoid today."
   top:
-    description: "Get the biggest dicks of the chat"
-    title: "Top of the biggest dicks:"
-    line: "%{n}|<b>%{name}</b> — <b>%{length}</b> cm"
-    ending: "<i>[+] means a grower hasn't grown his dick today yet.</i>"
+    description: "See people with the smallest hemorrhoids"
+    title: "Top rankings (smallest hemorrhoids):"
+    line: "%{n}|<b>%{name}</b> — <b>%{level}</b> cm"
+    ending: "<i>[+] means this person hasn't applied treatment today yet.</i>"
     empty: "No one is in the game yet :("
-  dod:
-    description: "Elect the Dick of a Day"
-    result: "The Dick of the Day is <b><a href=\"tg://user?id=%{uid}\">%{name}</a></b>!\n\nHis dick has become longer for <b>%{growth} cm</b> and is <b>%{length}</b> cm long now."
-    position: "His position in the top is <b>%{pos}</b>."
-    already_chosen: "The Dick of the Day has been already chosen for today! It's <b>%{name}</b>."
-    no_candidates: "There is no candidates for election. In this chat nobody is in the game yet 😢"
-  pvp:
-    description: "Fight with your friend's dick!"
+  worst:
+    description: "See people with the worst hemorrhoids"
+    title: "Worst swellers (largest hemorrhoids):"
+    line: "%{n}|<b>%{name}</b> — <b>%{level}</b> cm"
+    ending: "<i>[+] means this person hasn't applied treatment today yet.</i>"
+    empty: "No one is in the game yet :("
+  hod:
+    description: "Elect the Hemorrhoid of the Day (least swollen)"
+    result: "The Hemorrhoid of the Day is <b><a href=\"tg://user?id=%{uid}\">%{name}</a></b>!\n\nTheir hemorrhoid has shrunk by <b>%{improvement} cm</b> and now has <b>%{level}</b> cm protrusion."
+    position: "Their position in the rankings is <b>%{pos}</b>."
+    already_chosen: "The Hemorrhoid of the Day has been already chosen for today! It's <b>%{name}</b>."
+    no_candidates: "There are no candidates for election. In this chat nobody is in the game yet 😢"
+  level:
+    description: "Check your hemorrhoid protrusion level"
+    stats: "Protrusion Level: <b>%{level} cm</b>\nPosition in the rankings: <b>%{pos}</b>"
+    position: "Your position in the rankings is <b>%{pos}</b>."
+    not_found: "You don't appear to have a hemorrhoid in our system yet. Use /shrink to begin!"
+  clench:
+    description: "Try to activate your pelvic muscles to reduce damage"
+  tip:
+    description: "Get an anti-hemorrhoid tip"
+    tip1: "Don't sit for too long at one time. Take short breaks to stand, stretch, or walk around."
+    tip2: "Eat more fiber and drink plenty of fluids to prevent constipation."
+    tip3: "Avoid straining during bowel movements. Relax and take your time."
+    tip4: "Regular exercise improves circulation and can prevent hemorrhoid flare-ups."
+    tip5: "Use a cushion when sitting to relieve pressure on your hemorrhoids."
+    tip6: "Keep the anal area clean using mild, fragrance-free soap and water."
+    tip7: "Apply cold compresses to reduce swelling and discomfort."
+    tip8: "Soak in a warm bath for 10-15 minutes several times a day."
+    tip9: "Over-the-counter creams and suppositories can provide temporary relief."
+    tip10: "See a doctor if your symptoms persist or worsen significantly."
+  penetrate:
+    description: "Challenge someone to an Anal Penetration Battle!"
+    button: "Accept the challenge!"
     results:
-      start: "<b>%{name}</b> challenged the chat with a bet of <b>%{bet} cm</b>!"
-      finish: "The winner is <b>%{winner_name}</b>! His dick is now <b>%{winner_length} cm</b> long. The loser's one is <b>%{loser_length}</b>.\nThe bet was <b>%{bet} cm</b>."
-      position:
-        winner: "<b>%{name}</b>'s position in the top is <b>%{pos}</b>."
-        loser: "<b>%{name}</b>'s position in the top is <b>%{pos}</b>."
+      start: "<b>%{name}</b> has challenged the chat to an Anal Penetration Battle with a bet of <b>%{bet} cm</b>!"
+      finish: "The winner is <b>%{winner_name}</b>! Their hemorrhoid is now <b>%{winner_level} cm</b>. The loser's is <b>%{loser_level}</b>.\nThe bet was <b>%{bet} cm</b>."
+      top_swelled: "<b>%{name}</b> took the top role and experienced <b>%{damage} cm</b> of hemorrhoid swelling! 🔴"
+      top_improved: "<b>%{name}</b> took the top role and surprisingly experienced <b>%{improvement} cm</b> of hemorrhoid improvement! 🟢"
+      bottom_swelled: "<b>%{name}</b> took the bottom role and suffered <b>%{damage} cm</b> of hemorrhoid swelling! 🔴"
+      bottom_improved: "<b>%{name}</b> took the bottom role and miraculously experienced <b>%{improvement} cm</b> of hemorrhoid improvement! 🟢"
+      winner: "The winner of this Anal Penetration Challenge is <b>%{name}</b>, gaining <b>%{bet} cm</b> advantage!"
+      position: "<b>%{name}</b>'s position in the rankings is <b>%{pos}</b>."
       stats:
-        text: "Win rate of the <b>winner</b> — <b>%{winner_win_rate}</b>.\nHis current win streak — <b>%{winner_win_streak}</b>, max win streak — <b>%{winner_win_streak_max}</b>.\nWin rate of the <b>loser</b> — <b>%{loser_win_rate}</b>."
+        text: "Win rate of the <b>winner</b> — <b>%{winner_win_rate}</b>.\nTheir current win streak — <b>%{winner_win_streak}</b>, max win streak — <b>%{winner_win_streak_max}</b>.\nWin rate of the <b>loser</b> — <b>%{loser_win_rate}</b>."
         lost_win_streak: "The streak of <b>%{lost_win_streak}</b> victories in a row was lost."
       withheld: "<b>%{payout} cm</b> were withheld from the winner to pay off the loan."
-    button: "Attack!"
     errors:
       no_args: "Call the command with a number of centimeters you're willing to bet."
       not_enough:
-        initiator: "Meh. The initiator's dick is not long enough for such a big bet!"
-        acceptor: "Your gun is not long enough 😣"
-      same_person: "You cannot fight with yourself!"
-      battle_already_in_progress: "The fight is in progress already! The message will be updated in a moment…"
+        initiator: "The initiator's hemorrhoid isn't small enough for such a big bet! You need a hemorrhoid with less than %{bet} cm protrusion."
+        acceptor: "Your hemorrhoid is too swollen to accept this challenge! 😣"
+      same_person: "You cannot battle with yourself!"
+      battle_already_in_progress: "A battle is already in progress! The message will be updated in a moment…"
+  buttfight:
+    description: "Alternative name for Penetration Battle"
   stats:
     description: "Statistics"
-    length: "Length: <b>%{length}</b>\nPosition in the top: <b>%{pos}</b>"
-    pvp: "Win rate: <b>%{win_rate}</b>.\nFights: <b>%{battles}</b>.\nWins: <b>%{wins}</b>.\nMax win streak: <b>%{win_streak}</b>.\nAcquired length: <b>%{acquired} cm</b>.\nLost length: <b>%{lost} cm</b>."
-    notice: "The collection of statistics started on July 2, 2024."
-    personal: "<i>Your personal statistics:</i>\n— Number of the chats in which you play: <b>%{chats}</b>.\n— Maximum length: <b>%{max_length}</b>.\n— Sum of dicks across all the chats: <b>%{total_length}</b>."
+    length: "Protrusion Level: <b>%{length}</b>\nPosition in rankings: <b>%{pos}</b>"
+    pvp: "Win rate: <b>%{win_rate}</b>.\nBattles: <b>%{battles}</b>.\nWins: <b>%{wins}</b>.\nMax win streak: <b>%{win_streak}</b>.\nImproved by: <b>%{acquired} cm</b>.\nSwelled by: <b>%{lost} cm</b>."
+    notice: "The collection of statistics started on May 20, 2025."
+    personal: "<i>Your personal statistics:</i>\n— Number of the chats in which you play: <b>%{chats}</b>.\n— Minimum protrusion: <b>%{min_level}</b>.\n— Sum of protrusion across all chats: <b>%{total_level}</b>."
   loan:
-    description: "Minus? Take a loan!"
+    description: "Too swollen? Get treatment on credit!"
     debt: "Left to pay <b>%{debt} cm</b>"
     confirmation:
-      text: "Your deep hole will be reset to zero, but each growth will be lowered by <b>%{payout_percentage}</b> until all <b>%{debt} cm</b> is repaid."
+      text: "Your hemorrhoid will be shrunk to a more manageable level, but each treatment will be reduced by <b>%{payout_percentage}</b> until all <b>%{debt} cm</b> is repaid."
       buttons:
         agree: "I'm in!"
         disagree: "Disagree"
     callback:
       success: "The microloan has been issued successfully!"
-      refused: "The patient refused gender reassignment on credit."
+      refused: "The patient refused treatment on credit."
       payout_ratio_changed: "The payout rate has been changed since you sent the loan application. Please, invoke the command again."
     errors:
-      positive_length: "Sorry, man, this social initiative is supposed only for girls have very very deep craves. I cannot make your big bro even longer :("
+      positive_length: "Sorry, your hemorrhoid isn't swollen enough to qualify for credit treatment. This is only for severe cases :("
   import:
-    description: "Import dicks from other bots"
+    description: "Import hemorrhoid data from other bots"
     result:
       titles:
         imported: "The following users have been imported:"
         already_present: "The following users were already imported earlier:"
         not_found: "The following users are not in the game yet:"
       line:
-        imported: "➖ <b>%{name}</b> (<i>%{length}</i> cm)"
-        already_present: "➖ <b>%{name}</b> (<i>%{length}</i> cm)"
+        imported: "➖ <b>%{name}</b> (<i>%{level}</i> cm)"
+        already_present: "➖ <b>%{name}</b> (<i>%{level}</i> cm)"
         not_found: "➖ <b>%{name}</b>"
     errors:
       not_admin: "This command is supposed to be used by admins only!"
@@ -84,13 +114,13 @@ commands:
     description: "Activate a promo code"
     request: "Enter a promo code:"
     success:
-      template: "You has activated this promo code successfully! %{ending}"
-      singular: "Your dick has grown by <b>%{growth}</b> cm in one chat."
-      plural: "Your dick has grown by <b>%{growth}</b> cm in <b>%{affected_chats}</b> chats!"
+      template: "You have activated this promo code successfully! %{ending}"
+      singular: "Your hemorrhoid has improved by <b>%{growth}</b> cm in one chat."
+      plural: "Your hemorrhoid has improved by <b>%{growth}</b> cm in <b>%{affected_chats}</b> chats!"
     errors:
       no_activations_left: "I'm so sorry but this promo code either does not exist at all, or expired, or exhausted 😞"
       already_activated: "It seems you already used this promocode earlier 🤨"
-      no_dicks: "It seems you don't have any dicks yet. 🤔 Right now is the time to add me into a chat and execute the <code>/grow</code> command!"
+      no_hemorrhoids: "It seems you don't have any hemorrhoids yet. 🤔 Right now is the time to add me into a chat and execute the <code>/shrink</code> command!"
     inline:
       switch_button: "Activate promo code '%{code}'…"
 inline:
@@ -98,7 +128,8 @@ inline:
     text: "Since I cannot determine the chat by an inline query, you should click on the button bellow to get the result."
     button: "Click me!"
     titles:
-      grow: "Grow your dick!"
+      shrink: "Shrink your hemorrhoid!"
+      penetrate: "Initiate Anal Penetration Battle with %{bet} cm bet"
       top: "Get the biggest dicks of the chat"
       dick_of_day: "Elect the Dick of a Day"
       pvp: "Challenge others with a bet of %{bet} cm!"

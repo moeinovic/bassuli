@@ -1,5 +1,5 @@
 mod users;
-mod dicks;
+mod hemoroids;
 mod chats;
 mod import;
 mod promo;
@@ -16,7 +16,7 @@ use sqlx::{Pool, Postgres};
 use sqlx::postgres::PgQueryResult;
 use teloxide::types::{ChatId, UserId};
 pub use users::*;
-pub use dicks::*;
+pub use hemoroids::*;
 pub use chats::*;
 pub use import::*;
 pub use promo::*;
@@ -30,7 +30,7 @@ use crate::config::DatabaseConfig;
 #[derive(Clone)]
 pub struct Repositories {
     pub users: Users,
-    pub dicks: Dicks,
+    pub hemoroids: Hemoroids,
     pub chats: Chats,
     pub import: Import,
     pub promo: Promo,
@@ -44,7 +44,7 @@ impl Repositories {
     pub fn new(db_conn: &Pool<Postgres>, config: &config::AppConfig) -> Self {
         Self {
             users: Users::new(db_conn.clone()),
-            dicks: Dicks::new(db_conn.clone(), config.features),
+            hemoroids: Hemoroids::new(db_conn.clone(), config.features),
             chats: Chats::new(db_conn.clone(), config.features),
             import: Import::new(db_conn.clone()),
             promo: Promo::new(db_conn.clone()),
