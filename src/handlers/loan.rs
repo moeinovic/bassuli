@@ -60,13 +60,13 @@ pub(crate) async fn loan_impl(repos: &repo::Repositories, from_refs: FromRefs<'_
         return Ok(HandlerImplResult::OnlyText(err_text))
     }
 
-    let length = repos.dicks.fetch_length(from.id, &chat_id_kind).await?;
-    if length >= 0 {
+    let protrusion_level = repos.hemoroids.fetch_protrusion_level(from.id, &chat_id_kind).await?;
+    if protrusion_level >= 0 {
         let err_text = t!("commands.loan.errors.positive_length", locale = &lang_code).to_string();
         return Ok(HandlerImplResult::OnlyText(err_text))
     }
 
-    let debt = length.unsigned_abs() as u16;
+    let debt = protrusion_level.unsigned_abs() as u16;
     let payout_percentage = format!("{:.2}%", config.loan_payout_ratio * 100.0);
 
     let btn_agree = CallbackButton::new(

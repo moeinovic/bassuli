@@ -251,7 +251,7 @@ impl Into<UserId> for UserInfo {
 }
 
 pub(crate) async fn pvp_impl_start(p: BattleParams, initiator: UserInfo, bet: u16) -> anyhow::Result<(String, Option<InlineKeyboardMarkup>)> {
-    let enough = p.repos.dicks.check_dick(&p.chat_id.kind(), initiator.uid, bet).await?;
+    let enough = p.repos.hemoroids.check_hemoroid(&p.chat_id.kind(), initiator.uid, bet).await?;
     log::debug!("Starting a PvP for {} in the chat with id = {} (bet = {bet}, enough = {enough})...", initiator.uid, p.chat_id);
 
     let data = if enough {
@@ -271,8 +271,8 @@ pub(crate) async fn pvp_impl_start(p: BattleParams, initiator: UserInfo, bet: u1
 async fn pvp_impl_attack(p: BattleParams, initiator: UserId, acceptor: UserInfo, bet: u16) -> anyhow::Result<CallbackResult> {
     let chat_id_kind = p.chat_id.kind();
     let (enough_initiator, enough_acceptor) = join!(
-       p.repos.dicks.check_dick(&chat_id_kind, initiator, bet),
-       p.repos.dicks.check_dick(&chat_id_kind, acceptor.uid, if p.features.check_acceptor_length { bet } else { 0 }),
+       p.repos.hemoroids.check_hemoroid(&chat_id_kind, initiator, bet),
+       p.repos.hemoroids.check_hemoroid(&chat_id_kind, acceptor.uid, if p.features.check_acceptor_length { bet } else { 0 }),
     );
     let (enough_initiator, enough_acceptor) = (enough_initiator?, enough_acceptor?);
 
@@ -282,7 +282,7 @@ async fn pvp_impl_attack(p: BattleParams, initiator: UserId, acceptor: UserInfo,
     let result = if enough_initiator && enough_acceptor {
         let acceptor_uid = acceptor.clone().into();
         let (winner, loser) = choose_winner(initiator, acceptor_uid);
-        let (loser_res, winner_res) = p.repos.dicks.move_length(&p.chat_id, loser, winner, bet).await?;
+        let (loser_res, winner_res) = p.repos.hemoroids.move_protrusion_level(&p.chat_id, loser, winner, bet).await?;
 
         let battle_stats = p.repos.pvp_stats.send_battle_result(&p.chat_id.kind(), winner, loser, bet).await
             .inspect_err(|e| log::error!("couldn't send users' battle statistics for winner ({}) and loser ({}): {}", winner, loser, e))
@@ -366,7 +366,7 @@ async fn pay_for_loan_if_needed(p: &BattleParams, winner_id: UserId, award: u16)
     p.repos.loans.pay(winner_id, &chat_id_kind, payout).await?;
     
     let withheld = -(payout as i32);
-    let growth_res = p.repos.dicks.grow_no_attempts_check(&chat_id_kind, winner_id, withheld).await?;
+    let growth_res = p.repos.hemoroids.grow_no_attempts_check(&chat_id_kind, winner_id, withheld).await?;
     Ok(Some((growth_res, payout)))
 }
 

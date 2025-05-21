@@ -47,11 +47,11 @@ async fn personal_stats_impl(repos: &repo::Repositories, from_refs: FromRefs<'_>
 
 pub(crate) async fn chat_stats_impl(repos: &repo::Repositories, from_refs: FromRefs<'_>, features: BattlesFeatureToggles) -> anyhow::Result<String> {
     let lang_code = LanguageCode::from_user(from_refs.0);
-    let (length, position) = repos.dicks.fetch_dick(from_refs.0.id, &from_refs.1.kind()).await?
-        .map(|dick| (dick.length, dick.position.unwrap_or_default()))
+    let (protrusion_level, position) = repos.hemoroids.fetch_hemoroid(from_refs.0.id, &from_refs.1.kind()).await?
+        .map(|hemoroid| (hemoroid.protrusion_level, hemoroid.position.unwrap_or_default()))
         .unwrap_or_default();
     let length_stats = t!("commands.stats.length", locale = &lang_code,
-        length = length, pos = position);
+        length = protrusion_level, pos = position);
     let pvp_stats = repos.pvp_stats.get_stats(&from_refs.1.kind(), from_refs.0.id).await
         .map(|stats| t!("commands.stats.pvp", locale = &lang_code,
             win_rate = stats.win_rate_formatted(), win_streak = stats.win_streak_max,
